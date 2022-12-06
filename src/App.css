@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
 .App-logo {
@@ -35,4 +39,60 @@
   to {
     transform: rotate(360deg);
   }
+}
+.forms{
+ background-color: #E5EAF5;
+  width: 70%;
+  /* border: solid black 1px; */
+  box-shadow: 0px 0px 10px;
+  border-radius: 3px;
+  box-shadow: 5px 0px 0px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+button{
+   width:100px;
+   padding: 5px;
+   font-size: 15px;
+   margin: 3px;
+   border: none;
+   border-radius:3px;
+   background-color: #3f4c68;
+   color: white;
+}
+button:hover{
+  width:100px;
+   padding: 5px;
+   font-size: 15px;
+   margin: 3px;
+   border: none;
+   border-radius:3px;
+   background-color: #313b51;
+   color: white;
+  
+}
+input{
+  width: 70%;
+  height: 20px;
+  margin: 10px;
+  padding: 4px;
+  border: solid 1px black;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family:cursive;
+}
+textarea{
+  width: 70%;
+  height:100px;
+  margin: 10px;
+  padding: 4px;
+  border: solid 1px black;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family:cursive;
+}
+.reviews{
+  width: 75%;
 }
