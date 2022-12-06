@@ -9,23 +9,32 @@ let reviewObj = {
   rating:0
 };
 function App() {
+  let [title, setTitle] = useState('');
+  let [rating, setRating] = useState(0);
+  let [discription, setDiscription] = useState('');
   let [review, setReview] = useState(reviewObj);
   let [data, setData] = useState([]);
 
-function reviewValue(e){
-  setReview({...review, [e.target.name]:e.target.value});
-  console.log(review);
-}
+// function reviewValue(e){
+//   setReview({...review, [e.target.name]:e.target.value});
+//   console.log(review);
+// }
 
 function handleSubmit(e){
   e.preventDefault();
-  setReview({...review, date: (new Date()).getTime()});
+  setReview({...review,title:title, discription:discription, rating:rating, date: (new Date()).getTime()});
   setData([ review, ...data]);
-  setReview(reviewObj);
+  setTitle('');
+  setDiscription('');
+  setRating(0);
   console.log(data);
+  e.target.reset();
 }
 function handleReset(e){
   e.preventDefault();
+  setTitle('');
+  setDiscription('');
+  setRating(0);
   setReview(reviewObj);
 }
 
@@ -41,19 +50,19 @@ function deleteReview(date){
         <form className='forms'>
           
           <input id='title' placeholder='Title' name='title' 
-          
-           required onChange={(e)=>reviewValue(e)}></input>
+          value={title}
+           required onChange={(e)=>setTitle(e.target.value)}></input>
 
           
           <textarea id='discription' placeholder='Discription'
-      
-           name='discription' onChange={(e)=>reviewValue(e)}></textarea>
+            value={discription}
+           name='discription' onChange={(e)=>setDiscription(e.target.value)}></textarea>
 
 <Rating
   name="simple-controlled"
-  value={review.rating}
+  value={rating}
   onChange={(event, newValue) => {
-    setReview({...review, rating:newValue})
+    setRating(newValue);
   }}
 />
           {/* <input id='rating' placeholder='Rating' name='rating'
