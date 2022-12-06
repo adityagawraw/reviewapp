@@ -22,8 +22,9 @@ function reviewValue(e){
 
 function handleSubmit(e){
   e.preventDefault();
-  setReview({...review, date: (new Date()).getTime()});
+  setReview({...review, date: new Date()});
   setData([ review, ...data]);
+  console.log(review);
   // setTitle('');
   // setDiscription('');
   // setRating(0);
@@ -41,7 +42,7 @@ function handleReset(e){
 
 function deleteReview(date){
   setData((data)=>{
-    return data.filter((element)=>element.date!=date)
+    return data.filter((element, index)=>index!=date)
   })
 }
 
@@ -75,14 +76,14 @@ function deleteReview(date){
         </form>
       
       <div className='reviews'>
-        {data.length? data.map((element)=>{
+        {data.length? data.map((element, index)=>{
           return(
             <Review 
-            key={element.date} 
+            key={index} 
             title={element.title} 
             discription={element.discription}
             rating={element.rating}
-            date={element.date}
+            date={index}
             deleteReview ={deleteReview}
             />
           )
